@@ -45,8 +45,12 @@ function CardText(
       }`}
     >
       {tag && <div class="text-sm text-primary">{tag}</div>}
-      {label && <h3 class="text-lg text-base-content">{label}</h3>}
-      {description && <div class="text-sm text-neutral">{description}</div>}
+      {label && (
+        <h3 class="font-black	text-2xl text-red-700 underline decoration-red-700">
+          {label}
+        </h3>
+      )}
+      {description && <div class="text-sm text-green-400">{description}</div>}
     </div>
   );
 }
@@ -100,7 +104,7 @@ function CategoryList(props: Props) {
           >
             <a
               href={href}
-              class="flex flex-col gap-4 lg:w-[280px] w-40 lg:h-auto"
+              class="flex flex-col gap-4 lg:w-[280px] w-40 lg:h-auto bg-black rounded-xl"
             >
               {layout.categoryCard?.textPosition === "top" &&
                 (
@@ -115,7 +119,7 @@ function CategoryList(props: Props) {
                 (
                   <figure>
                     <Image
-                      class="card w-full"
+                      class="w-full"
                       src={image}
                       alt={description || label || tag}
                       width={160}
