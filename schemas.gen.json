@@ -11073,6 +11073,13 @@
         "cardLayout": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9pY2Fyby1lY29tL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
           "title": "Card Layout"
+        },
+        "backgroundColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Background Color"
         }
       },
       "required": [

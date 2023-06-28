@@ -51,8 +51,8 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-const WIDTH = 200;
-const HEIGHT = 279;
+const WIDTH = 144;
+const HEIGHT = 144;
 
 function ProductCard({ product, preload, itemListName, layout }: Props) {
   const {
@@ -85,27 +85,14 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
       </a>
     </li>
   ));
-  const cta = (
-    <a
-      href={url && relative(url)}
-      aria-label="view product"
-      class="btn btn-block"
-    >
-      {l?.basics?.ctaText || "Ver produto"}
-    </a>
-  );
 
   return (
     <div
       id={id}
       class={`card card-compact group w-full ${
         align === "center" ? "text-center" : "text-start"
-      } ${l?.onMouseOver?.showCardShadow ? "lg:hover:card-bordered" : ""}
-        ${
-        l?.onMouseOver?.card === "Move up" &&
-        "duration-500 transition-translate ease-in-out lg:hover:-translate-y-2"
-      }
-      `}
+      }       
+      border-2 border-color p-4`}
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -208,7 +195,6 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
               {skuSelector}
             </ul>
           )}
-          {l?.onMouseOver?.showCta && cta}
         </figcaption>
       </figure>
       {/* Prices & Name */}
@@ -252,7 +238,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
         {l?.hide?.allPrices ? "" : (
           <div class="flex flex-col gap-2">
             <div
-              class={`flex flex-col gap-0 ${
+              class={`${
                 l?.basics?.oldPriceSize === "Normal"
                   ? "lg:flex-row lg:gap-2"
                   : ""
@@ -294,17 +280,13 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
           </>
         )}
 
-        {!l?.hide?.cta
-          ? (
-            <div
-              class={`flex-auto flex items-end ${
-                l?.onMouseOver?.showCta ? "lg:hidden" : ""
-              }`}
-            >
-              {cta}
-            </div>
-          )
-          : ""}
+        <a
+          href={url && relative(url)}
+          aria-label="view product"
+          class="btn btn-block"
+        >
+          {l?.basics?.ctaText || "Ver produto"}
+        </a>
       </div>
     </div>
   );

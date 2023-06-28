@@ -21,6 +21,7 @@ export interface Props {
     headerfontSize?: "Normal" | "Large";
   };
   cardLayout?: cardLayout;
+  backgroundColor?: string;
 }
 
 function ProductShelf({
@@ -29,6 +30,7 @@ function ProductShelf({
   description,
   layout,
   cardLayout,
+  backgroundColor,
 }: Props) {
   const id = useId();
 
@@ -49,11 +51,14 @@ function ProductShelf({
         id={id}
         class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5"
       >
-        <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
+        <Slider
+          class={`carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5`}
+          style={{ backgroundColor }}
+        >
           {products?.map((product, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item w-[270px] sm:w-[292px] first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+              class="carousel-item w-[244px] first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
             >
               <ProductCard
                 product={product}
